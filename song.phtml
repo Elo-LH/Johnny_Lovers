@@ -3,22 +3,51 @@
 //if user authentified, personnalize greetings
 if (isset($_SESSION['user'])) {
     $pseudo = $_SESSION['user']['pseudo'];
-    $avatar = $_SESSION['user']['avatar'];
+    $email = $_SESSION['user']['email'];
+    $favoriteSong = $_SESSION['user']['favoriteSong'];
+    var_dump($_SESSION);
 ?>
     <p>Choisissez votre chanson préferée <?= $pseudo ?> </p>
     <?php
     //display grid of videos and choose url for favorite song
+    $query = $db->prepare('SELECT * FROM songs');
+    $parameters = [];
+    $query->execute($parameters);
+    $songs = $query->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($songs as $song) {
+    ?>
+
+        <div class="song-card">
+            <h2><?= $song['title'] ?></h2>
+            <iframe width="560" height="315" src="<?= $song['url'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <?php
+            if ($favoriteSong === $song['song_id']) {
+            ?>
+                <a href="./logic/song.php?toggleSong=true&song_id=<?= $song['song_id'] ?>">Enlever de ma chanson favorite</a>
+            <?php
+            } else {
+            ?>
+                <a href="./logic/song.php?toggleSong=false&song_id=<?= $song['song_id'] ?>">Sélexionner comme chason favorite</a>
+        </div>
+    <?php
+            }
+    ?>
 
 
+
+
+
+<?php
+    }
     //if user has admin role, add a link to admin page
     if ($_SESSION['user']['role'] === "admin") {
-    ?>
-        <a href="index.php?route=admin">Manage users</a>
-    <?php
+?>
+    <a href="index.php?route=admin">Manage users</a>
+<?php
     };
-    ?>
-    <a href="index.php?route=song">Choisir ma chanson préferée</a>
-    <a href="index.php?route=logout">Logout</a>
+?>
+<a href="index.php?route=song">Choisir ma chanson préferée</a>
+<a href="index.php?route=logout">Logout</a>
 <?php
 } else {
 ?>

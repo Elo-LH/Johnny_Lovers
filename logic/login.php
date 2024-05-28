@@ -33,6 +33,7 @@ if (!array_filter($_POST)) {
             $_SESSION['user'] = [
                 'pseudo' => $user['pseudo'],
                 'avatar' => $user['avatar'],
+                'email' => $user['email'],
                 'favoriteSong' => $user['favoriteSong'],
                 'role' => $user['role']
             ];
@@ -41,4 +42,4 @@ if (!array_filter($_POST)) {
         };
     }
 };
-header('Location: ../index.php?route=home');
+header('Location: ../index.php?route=song');
