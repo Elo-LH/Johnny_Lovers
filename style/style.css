@@ -1,0 +1,48 @@
+:root{
+    --main-color:#F22B29;
+    --main-bg-color:#140F2D;
+    --secondary-color:#F49D37;
+}
+
+/* ==========================================================================
+TOOLS
+========================================================================== */
+
+
+
+* {
+	box-sizing: border-box; 
+    margin: 0;
+}
+
+html {
+	font-size: 62.5%; 
+}
+
+body {
+	font-size: 1.6rem; 
+}
+
+/* ==========================================================================
+FOOTER
+========================================================================== */
+
+footer{
+    font-size: 3rem;
+    color: #fff;
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+footer i{
+    padding: 1rem;
+    cursor: pointer;
+}
+
+footer img{
+    width: 5rem;
+    cursor: pointer;
+}
