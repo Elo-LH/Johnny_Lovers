@@ -1,0 +1,44 @@
+<?php
+//only shows page if admin
+if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
+
+    //query user to modify from url
+    $email = $_GET['email'];
+    $query = $db->prepare('SELECT * FROM users WHERE email = :email');
+    $parameters = [
+        'email' => $email,
+    ];
+    $query->execute($parameters);
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+
+
+?>
+    <h1>Modifier un dévot de Johnny</h1>
+    <form action="./logic/modify.php?email=<?= $email ?>" method="post">
+        <label for="pseudo">Pseudo:</label>
+        <input value="<?= $user['pseudo'] ?>" type="text" name="pseudo" id="pseudo" required>
+        <label for="email">Email:</label>
+        <input value="<?= $user['email'] ?>" type="email" name="email" id="email" required>
+        <label for="avatar">Avatar:</label>
+        <input value="<?= $user['avatar'] ?>" type="text" name="avatar" id="avatar">
+        <label for="role">Role:</label>
+        <input value="<?= $user['role'] ?>" type="text" name="role" id="role">
+
+        <button type="submit">Modifier
+        </button>
+    </form>
+
+    <a href="./index.php?route=home">Revenir à l'accueil</a>
+
+<?php
+    //If no admin indentified give error message
+} else {
+?>
+    <p>Vous n'avez pas le pouvoir nécessaire pour manager les dévots de Johnny...</p>
+    <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWUyOTJpNGRta2Z0ZDBqYjl2bnQ2dXRxdDl0dDhudHFzNDN5dnBwaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RX3vhj311HKLe/giphy.gif" alt="">
+    <br>
+<?php
+}
+?>
+<a href="./index.php?route=home">Revenir à l'accueil</a>

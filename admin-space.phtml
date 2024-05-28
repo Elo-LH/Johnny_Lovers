@@ -4,14 +4,28 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
 
 ?>
     <h1>Administrer les dévots de Johnny</h1>
+    <a href="index.php?route=inscription&create=true">Ajouté un nouveau fan</a>
+    <form action="./index.php?route=admin" method="post"><label for="search"></label> <input type="text" id="search" name="search"> <button type="submit">Recherché un fan</button></form>
+    <a href="./index.php?route=admin">Voir tous les fans</a>
+    <?php
+    if (array_filter($_POST)) {
+        $search = $_POST['search'];
+    ?>
+        <p>Résultats de la recherche pour "<?= $search ?>":</p>
+    <?php
+    }
+    ?>
 
+    <?php
+
+    ?>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Email</th>
-                <th>Pseudo</th>
                 <th>Avatar</th>
+                <th>Pseudo</th>
+                <th>Email</th>
                 <th>Role</th>
                 <th>Actions</th>
             </tr>
@@ -23,22 +37,29 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
             $query->execute($parameters);
             $users = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($users as $user) {
+                if (array_filter($_POST)) {
+                    if (!preg_match("/$search/i", $user['pseudo']) && !preg_match("/$search/i", $user['email'])) {
+                        continue;
+                    };
+                };
             ?>
                 <tr>
                     <td><?= $user['user_id'] ?></td>
-                    <td><?= $user['email'] ?></td>
+                    <td><img src="<?= $user['avatar'] ?>" alt="" style="width:60px"></td>
                     <td><?= $user['pseudo'] ?></td>
-                    <td><img src="<?= $user['avatar'] ?>" alt="" style="width:100px"></td>
+                    <td><?= $user['email'] ?></td>
                     <td><?= $user['role'] ?></td>
-                    <td><a href="./logic/admin.php?delete=<?= $user['email'] ?>">Delete</a>
+                    <td><a href="./logic/admin.php?delete=<?= $user['email'] ?>">Zigouiller</a>
+                    <td><a href="./logic/admin.php?modify=<?= $user['email'] ?>">Modifier</a>
+
                         <?php
                         if ($user['role'] === 'admin') {
                         ?>
-                            <a href="./logic/admin.php?toggleAdmin=true&email=<?= $user['email'] ?>">Delete admin rights</a>
+                            <a href="./logic/admin.php?toggleAdmin=true&email=<?= $user['email'] ?>">Enlever l'héritage</a>
                         <?php
                         } else {
                         ?>
-                            <a href="./logic/admin.php?toggleAdmin=false&email=<?= $user['email'] ?>">Give admin rights</a>
+                            <a href="./logic/admin.php?toggleAdmin=false&email=<?= $user['email'] ?>">Donner l'héritage</a>
                         <?php
                         }
                         ?>
