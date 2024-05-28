@@ -3,40 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Document</title>
 </head>
 <body>
 
-
-
-<h1>Home</h1>
-<?php
-//if user authentified, personnalize greetings
-if (isset($_SESSION['user'])) {
-    $pseudo = $_SESSION['user']['pseudo'];
-    $avatar = $_SESSION['user']['avatar'];
-?>
-    <p>Welcome <?= $pseudo ?> </p>
-    <img src="<?= $avatar ?>" alt="" style="width:100px">
     <?php
-    //if user has admin role, add a link to admin page
-    if ($_SESSION['user']['role'] === "admin") {
+        require "header.phtml";
     ?>
-        <a href="index.php?route=admin">Manage users</a>
-    <?php
-    };
-    ?>
-    <a href="index.php?route=song">Choisir ma chanson préferée</a>
-    <a href="index.php?route=logout">Logout</a>
-<?php
-} else {
-?>
-    <p>Welcome</p>
-    <a href="index.php?route=inscription">Register</a>
-    <a href="index.php?route=connexion">Login</a>
-<?php
-}
-?>
 
 </body>
 </html>

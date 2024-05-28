@@ -1,0 +1,85 @@
+:root{
+    --main-color:#F22B29;
+    --main-bg-color:#140F2D;
+    --secondary-color:#F49D37;
+}
+
+/* ==========================================================================
+TOOLS
+========================================================================== */
+
+
+
+* {
+	box-sizing: border-box; 
+    margin: 0;
+}
+
+html {
+	font-size: 62.5%; 
+}
+
+body {
+	font-size: 1.6rem; 
+}
+
+/* ==========================================================================
+Home page
+========================================================================== */
+
+body{
+    background: var(--main-bg-color);
+    color: #fff;
+}
+
+header{
+    background: var(--main-bg-color);
+    padding-top: 2rem;
+}
+
+.header-top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-bottom{
+    display: flex;
+    justify-content: space-around;
+    font-family: "Roboto Condensed", sans-serif;
+    margin-top: 2rem;
+}
+
+.header-pseudo-avatar{
+    display: flex;
+    align-items: center;
+}
+
+.header-pseudo{
+    font-family: "Roboto Condensed", sans-serif;
+    margin-right: 1rem;
+}
+
+header a{
+    color: #fff;
+    transition: all 200ms ease-in;
+    text-decoration: none;
+}
+
+.header-avatar{
+    width: 8rem;
+}
+
+.header-hide{
+    visibility: hidden;
+    width: 20%;
+}
+
+.header-login{
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+header a:hover{
+    color: var(--main-color);
+}
