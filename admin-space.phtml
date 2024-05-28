@@ -4,7 +4,7 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
 
 ?>
     <h1>Administrer les dévots de Johnny</h1>
-
+    <a href="index.php?route=inscription&create=true">Ajouté un nouveau fan</a>
     <table>
         <thead>
             <tr>
@@ -30,17 +30,17 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
                     <td><?= $user['pseudo'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td><?= $user['role'] ?></td>
-                    <td><a href="./logic/admin.php?delete=<?= $user['email'] ?>">Delete</a>
-                    <td><a href="./logic/admin.php?modify=<?= $user['email'] ?>">Modify</a>
+                    <td><a href="./logic/admin.php?delete=<?= $user['email'] ?>">Zigouiller</a>
+                    <td><a href="./logic/admin.php?modify=<?= $user['email'] ?>">Modifier</a>
 
                         <?php
                         if ($user['role'] === 'admin') {
                         ?>
-                            <a href="./logic/admin.php?toggleAdmin=true&email=<?= $user['email'] ?>">Delete admin rights</a>
+                            <a href="./logic/admin.php?toggleAdmin=true&email=<?= $user['email'] ?>">Enlever l'héritage</a>
                         <?php
                         } else {
                         ?>
-                            <a href="./logic/admin.php?toggleAdmin=false&email=<?= $user['email'] ?>">Give admin rights</a>
+                            <a href="./logic/admin.php?toggleAdmin=false&email=<?= $user['email'] ?>">Donner l'héritage</a>
                         <?php
                         }
                         ?>
