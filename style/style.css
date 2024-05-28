@@ -1,0 +1,136 @@
+:root{
+    --main-color:#F22B29;
+    --main-bg-color:#140F2D;
+    --secondary-color:#F49D37;
+}
+
+/* ==========================================================================
+TOOLS
+========================================================================== */
+
+
+
+* {
+	box-sizing: border-box; 
+    margin: 0;
+}
+
+html {
+	font-size: 62.5%; 
+}
+
+body {
+	font-size: 1.6rem; 
+}
+
+/* ==========================================================================
+Home page
+========================================================================== */
+
+body{
+    background: var(--main-bg-color);
+    color: #fff;
+}
+
+header{
+    background: var(--main-bg-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header a{
+    color: #fff;
+    transition: all 200ms ease-in;
+}
+
+.header-hide{
+    visibility: hidden;
+}
+
+.header-login{
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.header-login a:hover{
+    color: var(--main-color);
+}
+
+.home-page-avatar{
+    width: 100px;
+}
+
+.home-page-presentation{
+    height: 80vh;
+    background-image: url("../img/Johnny-Hallyday-2359.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page-presentation-h1{
+    font-family: "Marcellus SC", serif;
+    background: #140f2d7e;
+    color: var(--main-color);
+    font-size: 8rem;
+}
+
+.home-page-rejoindre{
+    background-color: var(--main-color);
+    color: var(--main-bg-color);
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+.home-page-rejoindre-p{
+    width: 60%;
+    max-width: 800px;
+    text-align: center;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 2.4rem;
+}
+
+.home-page-rejoindre-button{
+    margin: 3rem auto;
+    border-radius: 7rem;
+    padding: 3rem 7rem;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 1.6rem;
+    border: none;
+    background-color: var(--secondary-color);
+    box-shadow: inset 20px -20px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 400ms ease-in;
+}
+
+.home-page-rejoindre-button a{
+    color: #000;
+    text-decoration: none;
+}
+
+.home-page-rejoindre-button:hover{
+    transform: translate(5px, -5px);
+    box-shadow:  rgba(0, 0, 0, 0.25) -10px 10px 5px,
+                inset 20px -20px 10px rgb(219, 132, 0);
+}
+
+.home-page-rejoindre-h1, .home-page-preuve-h1{
+    font-size: 3.2rem;
+    padding: 3rem;
+}
+
+.home-page-preuve{
+    margin: 0;
+    text-align: center;
+    color: var(--main-bg-color);
+    background-color: var(--secondary-color);
+}
+.home-page-preuve-img{
+    width: 80%;
+    max-width: 1000px;
+}
