@@ -23,8 +23,9 @@
         require "admin-space.phtml";
     } else if (preg_match("/song/", $route)) {
         require "song.phtml";
+    } else if (preg_match("/modify/", $route)) {
+        require "modify.phtml";
     }
-
     ?>
 
 </body>

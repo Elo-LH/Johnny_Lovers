@@ -39,7 +39,13 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
             $query->execute($parameters);
             $isAdminAdded = $query->fetch(PDO::FETCH_ASSOC);
         }
-    };
+    } else if (isset($_GET['modify'])) {
+        $email = $_GET['modify'];
+    }
 }
 
-header('Location: ../index.php?route=admin');
+if (isset($_GET['modify'])) {
+    header('Location: ../index.php?route=modify&email=' . $email);
+} else {
+    header('Location: ../index.php?route=admin');
+}

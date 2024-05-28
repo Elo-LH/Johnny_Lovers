@@ -9,9 +9,9 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Email</th>
-                <th>Pseudo</th>
                 <th>Avatar</th>
+                <th>Pseudo</th>
+                <th>Email</th>
                 <th>Role</th>
                 <th>Actions</th>
             </tr>
@@ -26,11 +26,13 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
             ?>
                 <tr>
                     <td><?= $user['user_id'] ?></td>
-                    <td><?= $user['email'] ?></td>
+                    <td><img src="<?= $user['avatar'] ?>" alt="" style="width:60px"></td>
                     <td><?= $user['pseudo'] ?></td>
-                    <td><img src="<?= $user['avatar'] ?>" alt="" style="width:100px"></td>
+                    <td><?= $user['email'] ?></td>
                     <td><?= $user['role'] ?></td>
                     <td><a href="./logic/admin.php?delete=<?= $user['email'] ?>">Delete</a>
+                    <td><a href="./logic/admin.php?modify=<?= $user['email'] ?>">Modify</a>
+
                         <?php
                         if ($user['role'] === 'admin') {
                         ?>
