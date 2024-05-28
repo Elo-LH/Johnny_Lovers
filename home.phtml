@@ -1,46 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Accueil</title>
-</head>
-<body>
-    <?php require "header.phtml"?>
-    <main class="home-page">
-        <section class="home-page-presentation">
-            <h1 class="home-page-presentation-h1">Il va rallumait le feu</h1>
-        </section>
-        <section class="home-page-rejoindre">
-            <h1 class="home-page-rejoindre-h1">Nous rejoindre</h1>
-            <p class="home-page-rejoindre-p">Johnny Hallyday, l'idole des jeune, n'a pas dis son dernier mot. Nous  sommes convaincue qu'il reviendra plus fors que jamais pour nous faire  vibré au ritme de sa musique. En attendant, nous continuon à célébrait  sa carriere exseptionnel et à partager notre passion pour cette artiste unique. Alors, si vous aussi vous etes persuadais que Johnny n'es pas  mort et que vous attender son retour avec impatiensse, rejoigné notre  communauté de fans et partagay votre amour pour Johnny <3.</p>
-            <button class="home-page-rejoindre-button">
-            <?php
-            //if user authentified, personnalize greetings
-            if (isset($_SESSION['user'])) {
-            ?>
-                <a href="index.php?route=song">
-                    Attendons Johnny ensemble !
+<main class="home-page">
+    <section class="home-page-presentation">
+        <h1 class="home-page-presentation-h1">Il va rallumait le feu</h1>
+    </section>
+    <section class="home-page-rejoindre">
+        <h1 class="home-page-rejoindre-h1">Nous rejoindre</h1>
+        <p class="home-page-rejoindre-p">Johnny Hallyday, l'idole des jeune, n'a pas dis son dernier mot. Nous  sommes convaincue qu'il reviendra plus fors que jamais pour nous faire  vibré au ritme de sa musique. En attendant, nous continuon à célébrait  sa carriere exseptionnel et à partager notre passion pour cette artiste unique. Alors, si vous aussi vous etes persuadais que Johnny n'es pas  mort et que vous attender son retour avec impatiensse, rejoigné notre  communauté de fans et partagay votre amour pour Johnny <3.</p>
+        <button class="home-page-rejoindre-button">
+        <?php
+        //if user authentified, personnalize greetings
+        if (isset($_SESSION['user'])) {
+        ?>
+            <a href="index.php?route=song">
+                Attendons Johnny ensemble !
+            </a>
+        <?php
+            }else{?>
+                <a href="index.php?route=inscription">
+                    Nous rejoindre !
                 </a>
-            <?php
-                }else{?>
-                    <a href="index.php?route=inscription">
-                        Nous rejoindre !
-                    </a>
-            <?php
-                }
-            ?>
-            </button>
-        </section>
-        <section class="home-page-preuve">
-            <h1 class="home-page-preuve-h1">Une preuve irréfutable que Johnny n’es pas mort</h1>
-            <img class="home-page-preuve-img" src="./img/johnny-alive.png" alt="Johnny Hallyday participant à une manifestation anti vax en 2020">
-        </section>
-    </main>
-    <script src="https://kit.fontawesome.com/c75c1791b5.js" crossorigin="anonymous"></script>
-</body>
-</html>
+        <?php
+            }
+        ?>
+        </button>
+    </section>
+    <section class="home-page-preuve">
+        <h1 class="home-page-preuve-h1">Une preuve irréfutable que Johnny n’es pas mort</h1>
+        <img class="home-page-preuve-img" src="./img/johnny-alive.png" alt="Johnny Hallyday participant à une manifestation anti vax en 2020">
+    </section>
+</main>
