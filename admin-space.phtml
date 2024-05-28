@@ -5,6 +5,20 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
 ?>
     <h1>Administrer les dévots de Johnny</h1>
     <a href="index.php?route=inscription&create=true">Ajouté un nouveau fan</a>
+    <form action="./index.php?route=admin" method="post"><label for="search"></label> <input type="text" id="search" name="search"> <button type="submit">Recherché un fan</button></form>
+    <a href="./index.php?route=admin">Voir tous les fans</a>
+    <?php
+    if (array_filter($_POST)) {
+        $search = $_POST['search'];
+    ?>
+        <p>Résultats de la recherche pour "<?= $search ?>":</p>
+    <?php
+    }
+    ?>
+
+    <?php
+
+    ?>
     <table>
         <thead>
             <tr>
@@ -23,6 +37,11 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
             $query->execute($parameters);
             $users = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($users as $user) {
+                if (array_filter($_POST)) {
+                    if (!preg_match("/$search/i", $user['pseudo']) && !preg_match("/$search/i", $user['email'])) {
+                        continue;
+                    };
+                };
             ?>
                 <tr>
                     <td><?= $user['user_id'] ?></td>
