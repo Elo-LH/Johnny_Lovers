@@ -1,0 +1,30 @@
+<h1>La musique de Johnny</h1>
+<?php
+//if user authentified, personnalize greetings
+if (isset($_SESSION['user'])) {
+    $pseudo = $_SESSION['user']['pseudo'];
+    $avatar = $_SESSION['user']['avatar'];
+?>
+    <p>Choisissez votre chanson préferée <?= $pseudo ?> </p>
+    <?php
+    //display grid of videos and choose url for favorite song
+
+
+    //if user has admin role, add a link to admin page
+    if ($_SESSION['user']['role'] === "admin") {
+    ?>
+        <a href="index.php?route=admin">Manage users</a>
+    <?php
+    };
+    ?>
+    <a href="index.php?route=song">Choisir ma chanson préferée</a>
+    <a href="index.php?route=logout">Logout</a>
+<?php
+} else {
+?>
+    <p>Welcome</p>
+    <a href="index.php?route=inscription">Register</a>
+    <a href="index.php?route=connexion">Login</a>
+<?php
+}
+?>
