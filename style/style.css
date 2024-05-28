@@ -1,0 +1,79 @@
+:root {
+  --main-color: #f22b29;
+  --main-bg-color: #140f2d;
+  --secondary-color: #f49d37;
+}
+
+/* ==========================================================================
+TOOLS
+========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--main-bg-color);
+}
+
+/* ==========================================================================
+REGISTER AND LOGIN FORM
+========================================================================== */
+.register-login-form h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.register-login-form {
+  font-family: 'Roboto Condensed';
+  background-color: var(--secondary-color);
+  color: var(--main-bg-color);
+  width: 50%;
+  margin: 10rem auto;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.register-login-form > * {
+  margin-inline: auto;
+  width: 50%;
+}
+.register-login-form input {
+  border-radius: 15px;
+  border: solid 2px var(--main-bg-color);
+  background-color: var(--secondary-color);
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+.register-login-form label {
+  margin-bottom: 0.6rem;
+}
+.register-login-form select {
+  border-radius: 15px;
+  border: solid 2px var(--main-bg-color);
+  background-color: var(--secondary-color);
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+.register-login-form button {
+  border-radius: 15px;
+  border: solid 2px var(--main-bg-color);
+  background-color: var(--main-color);
+  padding: 0.5rem 2rem;
+  margin-top: 3rem;
+  width: max-content;
+}
+
+.form-link-bottom {
+  text-align: center;
+  margin-top: 1rem;
+}
+.form-link-bottom a {
+  color: var(--main-color);
+}
