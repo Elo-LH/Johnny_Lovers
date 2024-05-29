@@ -53,3 +53,16 @@
         <a href="./index.php?route=home">Revenir à l'accueil</a>
     </p>
 </form>
+
+<audio src="/assets/Sasageyo.mp3" controls>
+
+</audio>
+
+<script>
+    let formElements = document.querySelectorAll('form > *');
+    formElements.forEach(element => {
+        element.addEventListener('focus', () => {
+            document.querySelector("audio").play();
+        });
+    });
+</script>
