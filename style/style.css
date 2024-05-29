@@ -110,12 +110,17 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 2em;
 }
 
 .song-card h2 {
     margin-bottom: 0.5em;
+    margin-top: 3rem;
+}
+
+iframe{
+    margin-bottom: 3rem;
 }
 
 .song-fav-button {
