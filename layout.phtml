@@ -14,7 +14,7 @@
 <body>
 
     <?php
-
+    require "header.phtml";
     if ($route === null || preg_match("/home/", $route)) {
         require "home.phtml";
     } else if (preg_match("/inscription/", $route)) {
@@ -33,9 +33,7 @@
 
     require "footer.phtml";
     ?>
-
-<script src="https://kit.fontawesome.com/c75c1791b5.js" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/c75c1791b5.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

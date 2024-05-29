@@ -1,28 +1,30 @@
-<h1>Home</h1>
-<?php
-//if user authentified, personnalize greetings
-if (isset($_SESSION['user'])) {
-    $pseudo = $_SESSION['user']['pseudo'];
-    $avatar = $_SESSION['user']['avatar'];
-?>
-    <p>Welcome <?= $pseudo ?> </p>
-    <img src="<?= $avatar ?>" alt="" style="width:100px">
-    <?php
-    //if user has admin role, add a link to admin page
-    if ($_SESSION['user']['role'] === "admin") {
-    ?>
-        <a href="index.php?route=admin">Manage users</a>
-    <?php
-    };
-    ?>
-    <a href="index.php?route=song">Choisir ma chanson préferée</a>
-    <a href="index.php?route=logout">Logout</a>
-<?php
-} else {
-?>
-    <p>Welcome</p>
-    <a href="index.php?route=inscription">Register</a>
-    <a href="index.php?route=connexion">Login</a>
-<?php
-}
-?>
+<main class="home-page">
+    <section class="home-page-presentation">
+        <h1 class="home-page-presentation-h1">Il va rallumait le feu</h1>
+    </section>
+    <section class="home-page-rejoindre">
+        <h1 class="home-page-rejoindre-h1">Nous rejoindre</h1>
+        <p class="home-page-rejoindre-p">Johnny Hallyday, l'idole des jeune, n'a pas dis son dernier mot. Nous  sommes convaincue qu'il reviendra plus fors que jamais pour nous faire  vibré au ritme de sa musique. En attendant, nous continuon à célébrait  sa carriere exseptionnel et à partager notre passion pour cette artiste unique. Alors, si vous aussi vous etes persuadais que Johnny n'es pas  mort et que vous attender son retour avec impatiensse, rejoigné notre  communauté de fans et partagay votre amour pour Johnny <3.</p>
+        <button class="home-page-rejoindre-button">
+        <?php
+        //if user authentified, personnalize greetings
+        if (isset($_SESSION['user'])) {
+        ?>
+            <a href="index.php?route=song">
+                Attendons Johnny ensemble !
+            </a>
+        <?php
+            }else{?>
+                <a href="index.php?route=inscription">
+                    Nous rejoindre !
+                </a>
+        <?php
+            }
+        ?>
+        </button>
+    </section>
+    <section class="home-page-preuve">
+        <h1 class="home-page-preuve-h1">Une preuve irréfutable que Johnny n’es pas mort</h1>
+        <img class="home-page-preuve-img" src="./img/johnny-alive.png" alt="Johnny Hallyday participant à une manifestation anti vax en 2020">
+    </section>
+</main>

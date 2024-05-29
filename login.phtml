@@ -1,5 +1,5 @@
-<h1>Connectez-vous</h1>
-<form action="./logic/login.php" method="post">
+<form class="register-login-form" action="./logic/login.php" method="post">
+    <h1>Connection</h1>
     <label for="email">Email:</label>
     <input type="email" name="email" id="email">
     <label for="password">Password:</label>
@@ -7,5 +7,8 @@
     <button type="submit">Revenir parmi les vivants
 
     </button>
+    <p class="form-link-bottom">Pas encore de compte? <a href="./index.php?route=inscription">S'inscrire</a></p>
+    <p class="form-link-bottom">
+        <a href="./index.php?route=home">Revenir à l'accueil</a>
+    </p>
 </form>
-<a href="./index.php?route=home">Retour à l'accueil</a>
