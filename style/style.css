@@ -4,8 +4,6 @@
     --main-bg-color:#140F2D;
     --secondary-color:#F49D37;
 }
-
-
 /* ==========================================================================
 TOOLS
 ========================================================================== */
@@ -21,7 +19,30 @@ html {
 
 body {
 	font-size: 1.6rem; 
-  background-color: var(--main-bg-color);
+}
+
+/* ==========================================================================
+FOOTER
+========================================================================== */
+
+footer{
+    font-size: 3rem;
+    color: #fff;
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+footer i{
+    padding: 1rem;
+    cursor: pointer;
+}
+
+footer img{
+    width: 5rem;
+    cursor: pointer;
 }
 
 /* ==========================================================================
@@ -140,23 +161,6 @@ header a{
 
 header a:hover{
     color: var(--main-color);
-}
-
-.header-hide{
-    visibility: hidden;
-}
-
-.header-login{
-    font-size: 3rem;
-    cursor: pointer;
-}
-
-.header-login a:hover{
-    color: var(--main-color);
-}
-
-.home-page-avatar{
-    width: 100px;
 }
 
 .home-page-presentation{
