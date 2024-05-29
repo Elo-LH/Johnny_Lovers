@@ -49,56 +49,74 @@ footer img{
 REGISTER AND LOGIN FORM
 ========================================================================== */
 .register-login-form h1 {
-  text-align: center;
-  margin-bottom: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 .register-login-form {
-  font-family: 'Roboto Condensed';
-  background-color: var(--secondary-color);
-  color: var(--main-bg-color);
-  width: 50%;
-  margin: 10rem auto;
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
+    font-family: 'Roboto Condensed';
+    background-color: var(--secondary-color);
+    color: var(--main-bg-color);
+    width: 50%;
+    margin: 10rem auto;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
 }
 .register-login-form > * {
-  margin-inline: auto;
-  width: 50%;
+    margin-inline: auto;
+    width: 50%;
 }
 .register-login-form input {
-  border-radius: 15px;
-  border: solid 2px var(--main-bg-color);
-  background-color: var(--secondary-color);
-  padding: 0.5rem;
-  margin-bottom: 2rem;
+    border-radius: 15px;
+    border: solid 2px var(--main-bg-color);
+    background-color: var(--secondary-color);
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+.register-login-form input:focus{
+    border: solid 3px var(--main-color);
+    outline: none;
 }
 .register-login-form label {
-  margin-bottom: 0.6rem;
+    margin-bottom: 0.6rem;
 }
 .register-login-form select {
-  border-radius: 15px;
-  border: solid 2px var(--main-bg-color);
-  background-color: var(--secondary-color);
-  padding: 0.5rem;
-  margin-bottom: 2rem;
+    border-radius: 15px;
+    border: solid 2px var(--main-bg-color);
+    background-color: var(--secondary-color);
+    padding: 0.5rem;
+    margin-bottom: 2rem;
 }
 .register-login-form button {
-  border-radius: 15px;
-  border: solid 2px var(--main-bg-color);
-  background-color: var(--main-color);
-  padding: 0.5rem 2rem;
-  margin-top: 3rem;
-  width: max-content;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--main-color);
+    padding: 1rem 4rem;
+    margin-top: 3rem;
+    width: max-content;
+    box-shadow: inset 5px -5px 5px rgba(0,0,0,0.25);
+    transition: all 400ms ease-in;
+    cursor: pointer;
+}
+
+.register-login-form button:hover{
+    transform: translate(3px, -3px);
+    box-shadow:  rgba(0, 0, 0, 0.25) -5px 5px 3px,
+                inset 20px -20px 10px rgb(219, 26, 0);
 }
 
 .form-link-bottom {
-  text-align: center;
-  margin-top: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
 }
 .form-link-bottom a {
-  color: var(--main-color);
+    color: var(--main-color);
+}
+
+.form-link-bottom a:hover{
+    color: aqua;
 }
 
 /* ==========================================================================
