@@ -1,24 +1,55 @@
-<h1>Rejoignez-nous</h1>
-<?php
-if (isset($_GET['error'])) {
-?>
-    <p>L'email "<?= $_GET['error'] ?>" est déjà utilisé</p>
-    <p>Veuillez en saisir un autre ou vous connecter via la page Login.</p>
-<?php
-}
-?>
-<form action="./logic/register.php" method="post">
-    <label for="pseudo">Pseudo:</label>
-    <input type="text" name="pseudo" id="pseudo" required>
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-    <label for="avatar">Avatar:</label>
-    <input type="text" name="avatar" id="avatar">
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required>
+<form class="register-login-form" action="./logic/register.php" method="post">
+    <h1>Inscription</h1>
+    <?php
+    if (isset($_GET['error'])) {
+    ?>
+        <p>L'email "<?= $_GET['error'] ?>" est déjà utilisé</p>
+        <p>Veuillez en saisir un autre ou vous connecter via la page Login.</p>
+    <?php
+    };
+    if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
+    ?>
+        <label for="pseudo">Pseudo</label>
+        <input type="text" name="pseudo" id="pseudo" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="avatar">Avatar</label>
+        <input type="text" name="avatar" id="avatar">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <label for="role">Role</label>
+        <select name="role" id="role">
+            <option value="null">Aucun</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Créer ce fan de Johnny
+        </button>
 
-    <button type="submit">Attendons Johnny ensemble !
-    </button>
+
+
+    <?php
+
+    } else {
+    ?>
+
+        <label for="pseudo">Pseudo:</label>
+        <input type="text" name="pseudo" id="pseudo" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        <label for="avatar">Avatar:</label>
+        <input type="text" name="avatar" id="avatar">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+
+        <button type="submit">Attendons Johnny ensemble !
+        </button>
+
+
+    <?php
+    };
+    ?>
+    <p class="form-link-bottom">Déjà un compte? <a href="./index.php?route=connexion">Se connecter</a></p>
+    <p class="form-link-bottom">
+        <a href="./index.php?route=home">Revenir à l'accueil</a>
+    </p>
 </form>
-
-<a href="./index.php?route=home">Revenir à l'accueil</a>

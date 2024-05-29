@@ -7,14 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Johnny Lovers</title>
 </head>
 
 <body>
 
     <?php
-
+    require "header.phtml";
     if ($route === null || preg_match("/home/", $route)) {
         require "home.phtml";
     } else if (preg_match("/inscription/", $route)) {
@@ -27,10 +27,13 @@
         require "admin-space.phtml";
     } else if (preg_match("/song/", $route)) {
         require "song.phtml";
+    } else if (preg_match("/modify/", $route)) {
+        require "modify.phtml";
     }
 
+    require "footer.phtml";
     ?>
-
+    <script src="https://kit.fontawesome.com/c75c1791b5.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

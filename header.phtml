@@ -1,0 +1,38 @@
+<header>
+    <section class="header-top">
+    <p class="header-hide">p</p>
+    <img class="header-logo" src="./img/Logo-Johnny-Lovers1.png" alt="logo Johnny Lovers">
+
+    <?php
+    //if user authentified, personnalize greetings
+    if (isset($_SESSION['user'])) {
+        $pseudo = $_SESSION['user']['pseudo'];
+        $avatar = $_SESSION['user']['avatar'];
+    ?>
+            <div class="header-pseudo-avatar">
+                <p class="header-pseudo"><?= $pseudo ?> </p>
+                <img src="<?= $avatar ?>" alt="" class="header-avatar">
+            </div>
+        </section>
+        <?php
+        //if user has admin role, add a link to admin page
+        if ($_SESSION['user']['role'] === "admin") {
+        ?>
+            <section class="header-bottom">
+            <a href="index.php?route=admin">Manage users</a>
+        <?php
+        };
+        ?>
+        <a href="index.php?route=song">Choisir ma chanson préferée</a>
+        <a href="index.php?route=logout">Logout</a>
+    <?php
+    } else {
+    ?>
+        <p class="header-login"><a href="index.php?route=inscription"><i class="fa-solid fa-right-to-bracket"></i></a></p>
+        <!--<a href="index.php?route=connexion">Login</a>-->
+        </section>
+    <?php
+    }
+    ?>
+
+</header>
