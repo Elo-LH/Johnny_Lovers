@@ -1,4 +1,10 @@
 <h1>La musique de Johnny</h1>
+<script>
+    function PlaySound(soundobj) {
+        var thissound = document.getElementById(soundobj);
+        thissound.play();
+    }
+</script>
 <?php
 //if user authentified, personnalize greetings
 if (isset($_SESSION['user'])) {
@@ -18,23 +24,21 @@ if (isset($_SESSION['user'])) {
     ?>
 
         <div class="song-card">
+
             <h2><?= $song['title'] ?></h2>
             <iframe width="560" height="315" src="<?= $song['url'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <?php
             if ($favoriteSong === $song['song_id']) {
             ?>
-                <a href="./logic/song.php?toggleSong=true&song_id=<?= $song['song_id'] ?>">Enlever de ma chanson favorite</a>
+                <a onmouseover="PlaySound('mySound')" href="./logic/song.php?toggleSong=true&song_id=<?= $song['song_id'] ?>">Enlever de ma chanson favorite</a>
             <?php
             } else {
             ?>
-                <a href="./logic/song.php?toggleSong=false&song_id=<?= $song['song_id'] ?>">Sélexionner comme chason favorite</a>
+                <a onmouseover="PlaySound('mySound')" href="./logic/song.php?toggleSong=false&song_id=<?= $song['song_id'] ?>">Sélexionner comme chason favorite</a>
         </div>
     <?php
             }
     ?>
-
-
-
 
 
 <?php
@@ -48,6 +52,7 @@ if (isset($_SESSION['user'])) {
 ?>
 <a href="index.php?route=song">Choisir ma chanson préferée</a>
 <a href="index.php?route=logout">Logout</a>
+<audio id='mySound' src='./assets/Rondoudou.mp3'></audio>
 <?php
 } else {
 ?>
