@@ -138,6 +138,21 @@ body {
 
 /********************     ADMIN PAGE        ************************/
 
+#search{
+    border: none;
+    background: var(--main-color);
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.admin-search-bar button{
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: #000 .2rem solid;
+    background: #fff;
+}
+
 .admin-main {
     font-family: 'Roboto Condensed', Helvetica, sans-serif;
     display: flex;
@@ -494,3 +509,7 @@ header a:hover {
     max-width: 1000px;
 }
 
+#seach{
+    border: none;
+    background: var(--secondary-color);
+}
