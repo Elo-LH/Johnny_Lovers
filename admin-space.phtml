@@ -1,18 +1,44 @@
 <?php
+
+if (isset($_SESSION['user'])) {
+    $pseudo = $_SESSION['user']['pseudo'];
+    $avatar = $_SESSION['user']['avatar'];
+    $email = $_SESSION['user']['email'];
+}
+
 //if user identified has admin role, display all users in table
 if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
 
 ?>
+
+<main class="admin-main">
+    <section class="admin-lateral-bar">
+    <div>
+        <p class="admin-avatar"><img src="<?= $avatar ?>" alt=""style="width:175px"></p>
+        <p>MON PROFILE</p>
+        <p><?= $pseudo ?></p>
+        <p><?= $email ?></p>
+        <p>Éditer le profile</p>
+    </div>
+    <div>
+        <p><a href="index.php?route=logout">Déconnexion</a></p>
+    </div>
+
+    </section>
+
+    <section class="admin-main-content">
     <h1>Administrer les dévots de Johnny</h1>
-    <script>
+
+                   <script>
         function PlaySound(soundobj) {
             var thissound = document.getElementById(soundobj);
             thissound.play();
         }
     </script>
-    <a href="index.php?route=inscription&create=true">Ajouté un nouveau fan</a>
-    <form action="./index.php?route=admin" method="post"><label for="search"></label> <input type="text" id="search" name="search"> <button type="submit">Recherché un fan</button></form>
-    <a href="./index.php?route=admin">Voir tous les fans</a>
+    <a class="admin-label-search" href="index.php?route=inscription&create=true">Ajouté un nouveau fan</a>
+    <form class="admin-search-bar" action="./index.php?route=admin" method="post"><label for="search"></label> <input type="text" id="search" name="search"> <button type="submit">Recherché un fan</button></form>
+    <a class="admin-see-all" href="./index.php?route=admin">Voir tous les fans</a>
+
     <?php
     if (array_filter($_POST)) {
         $search = $_POST['search'];
@@ -33,7 +59,7 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
                 <th>Pseudo</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Actions</th>
+                <th colspan="3">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -86,4 +112,8 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
 }
 ?>
 <a href="./index.php?route=home">Revenir à l'accueil</a>
+
+
+    </section>
 <audio id='mySound' src='./assets/Sasageyo-short.mp3'></audio>
+

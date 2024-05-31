@@ -122,7 +122,7 @@ body {
 
 .song-fav-button {
     padding: 0.5em 1.5em;
-    margin: 10rem 0;
+    width: 100%;
     font-size: 2rem;
     color: white;
     text-decoration: none;
@@ -134,6 +134,120 @@ body {
     text-decoration: underline;
     background-color: #f22c29;
 
+}
+
+/********************     ADMIN PAGE        ************************/
+
+.admin-main {
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    display: flex;
+}
+
+
+/* LATERAL BAR */
+
+.admin-lateral-bar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--main-color);
+    width: 20vw;
+    height: 100vh;
+}
+
+.admin-avatar {
+    margin: 2.2em 0;
+}
+
+.admin-avatar img {
+    border-radius: 50%;
+}
+
+.admin-lateral-bar p {
+    text-align: center;
+    color: white;
+}
+
+.admin-lateral-bar p:nth-child(2) {
+    font-size: 2.4rem;
+    margin-bottom: 1em;
+}
+
+.admin-lateral-bar p:nth-child(3) {
+    font-size: 2.4rem;
+    margin-bottom: 0.5em;
+}
+
+.admin-lateral-bar p:nth-child(4) {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2em;
+}
+
+.song-lateral-bar p:nth-child(5) {
+    font-size: 2.4rem;
+}
+
+.admin-lateral-bar div:nth-child(2) p {
+    font-size: 2.4rem;
+    font-weight: 300;
+    text-align: left;
+    margin: 0 0 3em 1.5em;
+}
+
+.admin-lateral-bar div:nth-child(2) p a {
+    text-decoration: none;
+    color: white;
+}
+
+.admin-lateral-bar div:nth-child(2) p a:hover {
+    font-weight: bold;
+    color: var(--main-bg-color);
+}
+
+/* MAIN CONTENT */
+
+.admin-main-content{
+    background-color: var(--secondary-color);
+    margin-left: 20vw;
+    padding: 2.5em;
+    width: 80vw;
+    height: 100%;
+}
+
+.admin-main-content h1 {
+    font-size: 3.6rem;
+    margin-bottom: 3.5rem;
+}
+
+.admin-search-bar {
+    margin: 1em 0;
+    border-radius: 10px;
+}
+
+table {
+    margin: 1.5em 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border-bottom: 1px solid #dddddd61;
+    text-align: center;
+}
+
+th {
+    background-color: #f22c298e;
+}
+  
+td {
+    height: 50px;
+}
+
+
+  tr:nth-child(even) {
+    background-color: #f22c298e;
 }
 
 /* ==========================================================================
@@ -159,6 +273,7 @@ footer img {
   width: 5rem;
   cursor: pointer;
 }
+
 
 /* ==========================================================================
 REGISTER AND LOGIN FORM
@@ -373,7 +488,9 @@ header a:hover {
   color: var(--main-bg-color);
   background-color: var(--secondary-color);
 }
-.home-page-preuve-img {
-  width: 80%;
-  max-width: 1000px;
+
+.home-page-preuve-img{
+    width: 80%;
+    max-width: 1000px;
 }
+
