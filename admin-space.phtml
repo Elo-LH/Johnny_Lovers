@@ -4,6 +4,12 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
 
 ?>
     <h1>Administrer les dévots de Johnny</h1>
+    <script>
+        function PlaySound(soundobj) {
+            var thissound = document.getElementById(soundobj);
+            thissound.play();
+        }
+    </script>
     <a href="index.php?route=inscription&create=true">Ajouté un nouveau fan</a>
     <form action="./index.php?route=admin" method="post"><label for="search"></label> <input type="text" id="search" name="search"> <button type="submit">Recherché un fan</button></form>
     <a href="./index.php?route=admin">Voir tous les fans</a>
@@ -49,7 +55,7 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
                     <td><?= $user['pseudo'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td><?= $user['role'] ?></td>
-                    <td><a href="./logic/admin.php?delete=<?= $user['email'] ?>">Zigouiller</a>
+                    <td><a onmouseover="PlaySound('mySound')" href="./logic/admin.php?delete=<?= $user['email'] ?>">Zigouiller</a>
                     <td><a href="./logic/admin.php?modify=<?= $user['email'] ?>">Modifier</a>
 
                         <?php
@@ -80,3 +86,4 @@ if (array_filter($_SESSION) && $_SESSION['user']['role'] === 'admin') {
 }
 ?>
 <a href="./index.php?route=home">Revenir à l'accueil</a>
+<audio id='mySound' src='./assets/Sasageyo-short.mp3'></audio>
