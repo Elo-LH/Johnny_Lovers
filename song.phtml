@@ -1,3 +1,10 @@
+<script>
+    function PlaySound(soundobj) {
+        var thissound = document.getElementById(soundobj);
+        thissound.play();
+    }
+</script>
+
 <?php
     //if user authentified, personnalize greetings
     if (isset($_SESSION['user'])) {
@@ -43,24 +50,26 @@
     ?>
     
         <div class="song-card">
+
             <h2><?= $song['title'] ?></h2>
             <iframe width="450" height="253" src="<?= $song['url'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>
             <?php
             if ($favoriteSong === $song['song_id']) {
             ?>
-                <a class="song-fav-button" href="./logic/song.php?toggleSong=true&song_id=<?= $song['song_id'] ?>">Enlever de ma chanson favorite</a>
-            </div>
+
+                <a onmouseover="PlaySound('mySound')" href="./logic/song.php?toggleSong=true&song_id=<?= $song['song_id'] ?>">Enlever de ma chanson favorite</a>
             <?php
             } else {
             ?>
-                <a class="song-fav-button" href="./logic/song.php?toggleSong=false&song_id=<?= $song['song_id'] ?>">Sélexionner comme chason favorite</a>
+                <a onmouseover="PlaySound('mySound')" href="./logic/song.php?toggleSong=false&song_id=<?= $song['song_id'] ?>">Sélexionner comme chason favorite</a>
+
         </div>
 
     <?php
             }
     ?>
-
     <?php
+
     }
     //if user has admin role, add a link to admin page
     if ($_SESSION['user']['role'] === "admin") {
@@ -69,13 +78,16 @@
     <a href="index.php?route=admin">Manage users</a>
     <?php
     };
+
     ?>
     <?php
     } else {
     ?>
+
     <p>Welcome</p>
     <a href="index.php?route=inscription">Register</a>
     <a href="index.php?route=connexion">Login</a>
+      <audio id='mySound' src='./assets/Rondoudou.mp3'></audio>
     <?php
     }
     ?>
